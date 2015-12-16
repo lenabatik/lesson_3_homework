@@ -8,21 +8,21 @@ class Calculator:
         if self.range_checking(x):
             if self.range_checking(y):
                 return x + y
-        raise NotImplementedError
+        raise ValueError
 
     def subtract(self, x, y):
         """This function subtracts two numbers"""
         if self.range_checking(x):
             if self.range_checking(y):
                 return x - y
-        raise NotImplementedError
+        raise ValueError
 
     def multiply(self, x, y):
         """This function multiplies two numbers"""
         if self.range_checking(x):
             if self.range_checking(y):
                 return x * y
-        raise NotImplementedError
+        raise ValueError
 
     def divide(self, x, y):
         """This function divides two numbers"""
@@ -31,7 +31,7 @@ class Calculator:
                 if y == 0:
                     raise ZeroDivisionError
                 else: return x / y
-        raise NotImplementedError
+        raise ValueError
 
     def evaluate(self, expression):
         """This function evaluate expression"""
