@@ -13,7 +13,7 @@ class CalculatorTestClass(TestCase):
     def test_add_positive(self, x, y, result):
         self.assertEqual(self.calculator.add(x, y), result)
 
-    @genty_dataset((0, 10, NotImplementedError), (-1, 9, NotImplementedError))
+    @genty_dataset((0, 10, ValueError), (-1, 9, ValueError))
     def test_add_negative(self, x, y, result):
         self.assertRaises(result, lambda: self.calculator.add(x, y))
 
@@ -21,7 +21,7 @@ class CalculatorTestClass(TestCase):
     def test_subtract_positive(self, x, y, result):
         self.assertEqual(self.calculator.subtract(x, y), result)
 
-    @genty_dataset((10, 0, NotImplementedError), (4, -1, NotImplementedError))
+    @genty_dataset((10, 0, ValueError), (4, -1, ValueError))
     def test_subtract_negative(self, x, y, result):
         self.assertRaises(result, lambda: self.calculator.subtract(x, y))
 
@@ -29,7 +29,7 @@ class CalculatorTestClass(TestCase):
     def test_multiply_positive(self, x, y, result):
         self.assertEqual(self.calculator.multiply(x, y), result)
 
-    @genty_dataset((0, 10, NotImplementedError), (-1, 9, NotImplementedError))
+    @genty_dataset((0, 10, ValueError), (-1, 9, ValueError))
     def test_multiply_negative(self, x, y, result):
         self.assertRaises(result, lambda: self.calculator.multiply(x, y))
 
@@ -37,7 +37,7 @@ class CalculatorTestClass(TestCase):
     def test_divide_positive(self, x, y, result):
         self.assertEqual(self.calculator.divide(x, y), result)
 
-    @genty_dataset((10, 1, NotImplementedError), (-1, 9, NotImplementedError), (5, 0, ZeroDivisionError))
+    @genty_dataset((10, 1, ValueError), (-1, 9, ValueError), (5, 0, ValueError))
     def test_divide_negative(self, x, y, result):
         self.assertRaises(result, lambda: self.calculator.divide(x, y))
 
