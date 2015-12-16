@@ -37,7 +37,7 @@ class CalculatorTestClass(TestCase):
     def test_divide_positive(self, x, y, result):
         self.assertEqual(self.calculator.divide(x, y), result)
 
-    @genty_dataset((10, 1, ValueError), (-1, 9, ValueError), (5, 0, ValueError))
+    @genty_dataset((10, 1, ValueError), (-1, 9, ValueError), (5, 0, ZeroDivisionError))
     def test_divide_negative(self, x, y, result):
         self.assertRaises(result, lambda: self.calculator.divide(x, y))
 
